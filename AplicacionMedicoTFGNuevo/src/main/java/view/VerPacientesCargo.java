@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -24,29 +23,24 @@ public class VerPacientesCargo extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	static String dni;
-	JLabel lblNewLabel;
-	MedicoController controllerMedico = new MedicoController();
-	String[] dniPaciente;
-	JComboBox<String> comboBoxDniPacientes;
-	String pacientes, selectedDni;
-	VentanaPrincipalMedico vpm;
+	private MedicoController controllerMedico = new MedicoController();
+	private String[] dniPaciente;
+	private JComboBox<String> comboBoxDniPacientes;
+	private String  selectedDni;
 	private JTextField textFieldDni, textFieldNombre, textFieldApellidos;
-	JLabel lblFechaIncorporacion, lblEspecialidad, lblApellidos, lblNombre, lblDNI, lblIntroduzcaNombre;
-	JFormattedTextField formattedTextFieldDni;
-	JButton btnVolver;
-	VentanaPrincipalMedico principal;
-
-	JTextField textFieldFechaNacimiento, textFieldSexo;
-	JLabel lblSexo, lblFechaNacimiento;
-
-	JLabel lblLugarDeNacimiento;
-	JTextField textFieldLugarNacimiento;
-	JLabel lblAltura;
-	JTextField textFieldAltura;
-	JLabel lblPeso;
-	JTextField textFieldPeso;
-	JLabel lblGrupoSanguineo;
-	JTextField textFieldGrupoSanguineo;
+	private JLabel lblApellidos, lblNombre, lblDNI, lblIntroduzcaNombre;
+	private JButton btnVolver;
+	private VentanaPrincipalMedico principal;
+	private JTextField textFieldFechaNacimiento, textFieldSexo;
+	private JLabel lblSexo, lblFechaNacimiento;
+	private JLabel lblLugarDeNacimiento;
+	private JTextField textFieldLugarNacimiento;
+	private JLabel lblAltura;
+	private JTextField textFieldAltura;
+	private JLabel lblPeso;
+	private JTextField textFieldPeso;
+	private JLabel lblGrupoSanguineo;
+	private JTextField textFieldGrupoSanguineo;
 	private JLabel lblVerInformacionDe;
 
 	/**

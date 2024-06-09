@@ -28,13 +28,13 @@ public class AnadirMedicamentoTarjeta extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	String[] dniPaciente;
-	MedicoController controllerMedico = new MedicoController();
-	String selectedDni;
+	private String[] dniPaciente;
+	private MedicoController controllerMedico = new MedicoController();
+	private String selectedDni;
 	private JLabel lblTitulo, lblElijaElDni, lblMensaje, lblIntroduzcaMedicamentos;
-	JButton btnCancelar, btnAceptar;
-	JComboBox<String> comboBoxDniPacientes;
-	VentanaPrincipalMedico principal;
+	private JButton btnCancelar, btnAceptar;
+	private JComboBox<String> comboBoxDniPacientes;
+	private VentanaPrincipalMedico principal;
 	static String dni;
 	private JButton btnAnadirCampo;
 	private JButton btnEliminarCampo;

@@ -26,14 +26,14 @@ public class EliminarMedicamentoTarjeta extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	JLabel lblTitulo, lblEligaElMedicamento, lblMedicamentoElegido, lblMensaje, lblEligaElDni;
-	String[] medicamento, dniPaciente;
-	String selectedDni, selectedMedicamento;
+	private JLabel lblTitulo, lblEligaElMedicamento, lblMedicamentoElegido, lblMensaje, lblEligaElDni;
+	private String[] medicamento, dniPaciente;
+	private String selectedDni, selectedMedicamento;
 	static String dni;
 	private JTextField textFieldMedicamento;
-	JButton btnCancelar, btnEliminar;
-	VentanaPrincipalMedico principal;
-	MedicoController controllerMedico = new MedicoController();
+	private JButton btnCancelar, btnEliminar;
+	private VentanaPrincipalMedico principal;
+	private MedicoController controllerMedico = new MedicoController();
 	private JComboBox<String> comboBoxDniPacientes, comboBoxMedicamentos;
 
 	/**

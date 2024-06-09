@@ -52,23 +52,22 @@ public class GenerarInforme extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	static String dni;
-	String[] dniPaciente;
-	JComboBox<String> comboBoxDniPacientes;
-	JLabel lblGenerarInforme;
-	JLabel lblIntroduzcaNombre;
-	MedicoController controllerMedico = new MedicoController();
-	JButton btnCancelar;
-	VentanaPrincipalMedico principal;
-	JButton btnGenerar;
-	String selectedDni, nombrePaciente, apellidosPaciente, nombreMedico, apellidosMedico, fechaNaciemiento, sexo,
+	private String[] dniPaciente;
+	private JComboBox<String> comboBoxDniPacientes;
+	private JLabel lblGenerarInforme;
+	private JLabel lblIntroduzcaNombre;
+	private MedicoController controllerMedico = new MedicoController();
+	private JButton btnCancelar;
+	private VentanaPrincipalMedico principal;
+	private JButton btnGenerar;
+	private String selectedDni, nombrePaciente, apellidosPaciente, nombreMedico, apellidosMedico, fechaNaciemiento, sexo,
 			especialidad, enfermedad, tipo, fechaIngreso, dniMedico;
-	String[] alergenos;
-	String[] medicamentos;
-	String filePath = "C:\\Users\\mamj2\\JaspersoftWorkspace\\MyReports\\InformePrueba";
-	String fileJRXML = filePath + ".jrxml";
-	HashMap<String, Object> parametros = new HashMap<>();
-	JasperReport informeEXE;
-	JasperPrint informeGenerado;
+	private String[] alergenos;
+	private String[] medicamentos;
+	private String filePath = "C:\\Users\\mamj2\\JaspersoftWorkspace\\MyReports\\InformePrueba";
+	private String fileJRXML = filePath + ".jrxml";
+	private HashMap<String, Object> parametros = new HashMap<>();
+
 
 	/**
 	 * Launch the application.

@@ -26,14 +26,14 @@ public class EliminarInformePaciente extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	JLabel lblTitulo, lblEligaElMedicamento, lblMedicamentoElegido, lblMensaje, lblEligaElDni;
-	String[]  dniPaciente,informes;
-	String selectedDni, selectedInforme;
+	private JLabel lblTitulo, lblEligaElMedicamento, lblMedicamentoElegido, lblMensaje, lblEligaElDni;
+	private String[]  dniPaciente,informes;
+	private String selectedDni, selectedInforme;
 	static String dni;
 	private JTextField textFieldInforme;
-	JButton btnCancelar, btnEliminar;
-	VentanaPrincipalMedico principal;
-	MedicoController controllerMedico = new MedicoController();
+	private JButton btnCancelar, btnEliminar;
+	private VentanaPrincipalMedico principal;
+	private MedicoController controllerMedico = new MedicoController();
 	private JComboBox<String> comboBoxInforme;
 	private JComboBox<String> comboBoxDniPacientes;
 	

@@ -31,10 +31,10 @@ public class Registro extends JFrame {
 	private JLabel labelPaswd, Title, name, surname, dob, gender, dni, lblMensaje;
 	private MaskFormatter mask;
 	private JPasswordField passwordField;
-	JButton btnAceptar, btnCancelar;
-	JFormattedTextField formattedDni, formattedFecha_Nacimiento;
-	MedicoController medicoController = new MedicoController();
-	InicioSesion inicio;
+	private JButton btnAceptar, btnCancelar;
+	private JFormattedTextField formattedDni, formattedFecha_Nacimiento;
+	private MedicoController medicoController = new MedicoController();
+	private InicioSesion inicio;
 
 	/**
 	 * Launch the application.

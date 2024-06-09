@@ -33,21 +33,21 @@ public class AsignarCitaPaciente extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	static String dni;
-	String[] dniPaciente;
-	MedicoController controllerMedico = new MedicoController();
-	JComboBox<String> comboBoxDniPacientes;
-	String selectedDni;
-	JLabel lblTitulo;
-	JDateChooser dateChooserFecha;
+	private String[] dniPaciente;
+	private MedicoController controllerMedico = new MedicoController();
+	private JComboBox<String> comboBoxDniPacientes;
+	private String selectedDni;
+	private JLabel lblTitulo;
+	private JDateChooser dateChooserFecha;
 	private JTextField textFieldFechaSeleccionada;
-	JLabel lblFechaSeleccionada;
-	JRadioButton rdbtnSeleccionarFecha;
-	JButton btnAceptar;
-	JButton btnCancelar;
-	VentanaPrincipalMedico principal;
-	JLabel lblMensaje;
-	DateFormat formateador;
-	ComponenteHoras componenteHoras;
+	private JLabel lblFechaSeleccionada;
+	private JRadioButton rdbtnSeleccionarFecha;
+	private JButton btnAceptar;
+	private JButton btnCancelar;
+	private VentanaPrincipalMedico principal;
+	private JLabel lblMensaje;
+	private DateFormat formateador;
+	private ComponenteHoras componenteHoras;
 
 	/**
 	 * Launch the application.

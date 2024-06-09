@@ -26,21 +26,21 @@ public class AsignarEnfemerdadYTipo extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
-    JLabel lblTipo;
-    JComboBox<String> comboBoxTipo;
-    JLabel lblEnfermedad;
-    JComboBox<String> comboBoxEnfermedad;
-    JComboBox<String> comboBoxDniPacientes;
-    JLabel lblAsignarDiagnosticoA;
-    String[] dniPaciente;
+    private JLabel lblTipo;
+    private JComboBox<String> comboBoxTipo;
+    private JLabel lblEnfermedad;
+    private JComboBox<String> comboBoxEnfermedad;
+    private JComboBox<String> comboBoxDniPacientes;
+    private JLabel lblAsignarDiagnosticoA;
+    private String[] dniPaciente;
     static String dni;
-    String selectedDni;
-    MedicoController controllerMedico = new MedicoController();
-    JButton btnAceptar;
-    JButton btnCancelar;
-    JLabel lblMensaje;
-    VentanaPrincipalMedico principal;
-    String enfermedad, tipo, fecha;
+    private String selectedDni;
+    private MedicoController controllerMedico = new MedicoController();
+    private JButton btnAceptar;
+    private JButton btnCancelar;
+    private JLabel lblMensaje;
+    private VentanaPrincipalMedico principal;
+    private String enfermedad, tipo, fecha;
     private JLabel lblFechaDiagnostico;
     private JTextField textFieldFechaDiagnostico;
 

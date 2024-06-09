@@ -16,39 +16,36 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
-import controller.MedicoController;
-
 public class VentanaPrincipalMedico extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	JLabel lblTitulo;
-	MedicoController controllerMedico = new MedicoController();
+	private JLabel lblTitulo;
 	static String dni;
-	VerPacientesCargo pacientesCargo;
-	AnadirMedicamentoTarjeta anadir;
-	JMenuBar menuBar, menuBarInfoPersonalCerrarSesion;
-	JMenu mnNewMenu, mnVerPacientesCargo, mnGestionCitas, mnGestionMedicamentos, mnAnadirEnfermedadTipo,
+	private VerPacientesCargo pacientesCargo;
+	private AnadirMedicamentoTarjeta anadir;
+	private JMenuBar menuBar, menuBarInfoPersonalCerrarSesion;
+	private JMenu mnNewMenu, mnVerPacientesCargo, mnGestionCitas, mnGestionMedicamentos, mnAnadirEnfermedadTipo,
 			mnGenerarInforme;
-	JMenuItem mntmVerPacientesCargo, mntmAsignarCitasPacientes, mntmAbrirCitasMedicas, mntmVerCitasPacientes,
+	private JMenuItem mntmVerPacientesCargo, mntmAsignarCitasPacientes, mntmAbrirCitasMedicas, mntmVerCitasPacientes,
 			mntmAñadirMedicamentosPaciente, mntmEliminarMedicamentosPaciente, mntmVerHistorialMedico,
 			mntmEnfermedadTipo, mntmVerEnferemedadTipo, mntmVerInformacionPersonal, mntmCerrarSesion,
 			mntmModificarEnfermedadTipo, mntmVerMedicamentosPaciente, mntmGenerarInforme, mntmVerInforme,mntmEliminarInforme, mntmModificarCita;
-	VentanaVerInfoPersonal info;
-	InicioSesion inicio;
-	AsignarCitaPaciente asignar;
-	EliminarMedicamentoTarjeta eliminar;
-	VerCitasConLosPacientes verCitas;
-	AbrirCitas abrir;
-	VerMedicamentosPaciente verMedicamentos;
-	VerHistorialMedico historial;
-	AsignarEnfemerdadYTipo enfermedadTipo;
-	VerEnfermedadTipo enfermedad;
-	ModificarEnfermedadTipo modificarEnfermedad;
-	GenerarInforme informe;
-	VerInformes informes;
-	ModificarCitaPaciente modificarCita;
-	EliminarInformePaciente eliminarInforme;
+	private VentanaVerInfoPersonal info;
+	private InicioSesion inicio;
+	private AsignarCitaPaciente asignar;
+	private EliminarMedicamentoTarjeta eliminar;
+	private VerCitasConLosPacientes verCitas;
+	private AbrirCitas abrir;
+	private VerMedicamentosPaciente verMedicamentos;
+	private VerHistorialMedico historial;
+	private AsignarEnfemerdadYTipo enfermedadTipo;
+	private VerEnfermedadTipo enfermedad;
+	private ModificarEnfermedadTipo modificarEnfermedad;
+	private GenerarInforme informe;
+	private VerInformes informes;
+	private ModificarCitaPaciente modificarCita;
+	private EliminarInformePaciente eliminarInforme;
 
 	/**
 	 * Launch the application.

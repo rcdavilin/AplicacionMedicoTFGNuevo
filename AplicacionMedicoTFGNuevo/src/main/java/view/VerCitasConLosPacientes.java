@@ -25,17 +25,17 @@ public class VerCitasConLosPacientes extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	static String dni;
-	String[] dniPaciente;
-	ArrayList<String> citas, dniMedico;
-	String selectedDni;
-	MedicoController controllerMedico = new MedicoController();
-	JLabel lblVerCitasCon;
-	JComboBox<String> comboBoxDniPacientes;
-	JLabel lblNewLabel;
-	JTextArea textAreaMostrar;
-	JScrollPane scrollPane;
+	private String[] dniPaciente;
+	private ArrayList<String> citas, dniMedico;
+	private String selectedDni;
+	private MedicoController controllerMedico = new MedicoController();
+	private JLabel lblVerCitasCon;
+	private JComboBox<String> comboBoxDniPacientes;
+	private JLabel lblNewLabel;
+	private JTextArea textAreaMostrar;
+	private JScrollPane scrollPane;
 	private JButton btnCancelar;
-	VentanaPrincipalMedico principal;
+	private VentanaPrincipalMedico principal;
 
 	/**
 	 * Launch the application.

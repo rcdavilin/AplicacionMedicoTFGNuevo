@@ -30,19 +30,19 @@ public class InicioSesion extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	JPasswordField passwordField;
+	private JPasswordField passwordField;
 	private Registro registro;
-	JPanel contentPane;
-	JLabel usernameLabel, passwordLabel;
-	JButton loginButton, registerButton;
-	JFormattedTextField formattedDni;
+	private JPanel contentPane;
+	private JLabel usernameLabel, passwordLabel;
+	private JButton loginButton, registerButton;
+	private JFormattedTextField formattedDni;
 	private MaskFormatter mascara;
-	MedicoController medicoController = new MedicoController();
-	VentanaPrincipalMedico vpm;
-	JRadioButton rdbtnMostrarContraseña;
-	CambioContraseña cambio;
-	String username;
-	JLabel cambiarContrasenaLabel;
+	private MedicoController medicoController = new MedicoController();
+	private VentanaPrincipalMedico vpm;
+	private JRadioButton rdbtnMostrarContraseña;
+	private CambioContraseña cambio;
+	private String username;
+	private JLabel cambiarContrasenaLabel;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {

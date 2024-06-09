@@ -23,11 +23,11 @@ public class VentanaVerInfoPersonal extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldDni, textFieldNombre, textFieldApellidos, textFieldEspecialidad,
 			textFieldFechaIncorporacion;
-	JLabel lblFechaIncorporacion, lblEspecialidad, lblApellidos, lblNombre, lblDNI, lblIntroduzcaNombre;
+	private JLabel lblFechaIncorporacion, lblEspecialidad, lblApellidos, lblNombre, lblDNI, lblIntroduzcaNombre;
 	private MedicoController controllerInterfaz = new MedicoController();
 	private MaskFormatter mascara;
-	JButton btnVolver;
-	VentanaPrincipalMedico principal;
+	private JButton btnVolver;
+	private VentanaPrincipalMedico principal;
 	static String dni;
 	private JLabel lblVerInformacionPersonal;
 

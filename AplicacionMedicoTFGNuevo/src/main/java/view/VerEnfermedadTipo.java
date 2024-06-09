@@ -23,14 +23,13 @@ public class VerEnfermedadTipo extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	static String dni;
-	MedicoController controllerMedico = new MedicoController();
-	String[] dniPaciente;
-	JComboBox<String> comboBoxDniPacientes;
-	String selectedDni, enfermedad, tipo, fecha;
-	JLabel lblTipo, lblEnfermedad, lblIntroduzcaNombre;
-	JButton btnVolver;
-	VentanaPrincipalMedico principal;
-
+	private MedicoController controllerMedico = new MedicoController();
+	private String[] dniPaciente;
+	private JComboBox<String> comboBoxDniPacientes;
+	private String selectedDni, enfermedad, tipo, fecha;
+	private JLabel lblTipo, lblEnfermedad, lblIntroduzcaNombre;
+	private JButton btnVolver;
+	private VentanaPrincipalMedico principal;
 	private JTextField textFieldEnfermedad;
 	private JTextField textFieldTipo;
 	private JLabel lblVerEnfermedadIngreso;

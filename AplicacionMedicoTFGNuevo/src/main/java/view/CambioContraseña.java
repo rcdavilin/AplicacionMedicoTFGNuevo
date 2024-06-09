@@ -28,12 +28,12 @@ public class CambioContraseña extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	InicioSesion inicio;
+	private InicioSesion inicio;
 	private JLabel lblMensaje, lblDni, lblIntroduzcaNuevaContrasea, lblIntroduzcaDeNuevo;
-	JFormattedTextField formattedDni;
-	JButton btnCancelar, btnAceptar;
+	private JFormattedTextField formattedDni;
+	private JButton btnCancelar, btnAceptar;
 	private MaskFormatter mascara;
-	MedicoController medicoController = new MedicoController();
+	private MedicoController medicoController = new MedicoController();
 	private JPasswordField passwordFieldContraseña, passwordFieldConfirmarContraseña;
 	private JRadioButton rdbtnMostrarContraseña, rdbtnMostrarContraseña_1;
 	private JLabel lblTitulo;

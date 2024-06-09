@@ -34,24 +34,24 @@ public class ModificarCitaPaciente extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	static String dni;
-	String[] dniPaciente;
-	ArrayList<String> citasMedicas;
-	MedicoController controllerMedico = new MedicoController();
-	JComboBox<String> comboBoxDniPacientes;
-	String selectedDni, selectedCita;
-	JLabel lblTitulo;
-	JDateChooser dateChooserFecha;
+	private String[] dniPaciente;
+	private ArrayList<String> citasMedicas;
+	private MedicoController controllerMedico = new MedicoController();
+	private JComboBox<String> comboBoxDniPacientes;
+	private String selectedDni, selectedCita;
+	private JLabel lblTitulo;
+	private JDateChooser dateChooserFecha;
 	private JTextField textFieldFechaSeleccionada;
-	JLabel lblFechaSeleccionada;
-	JRadioButton rdbtnSeleccionarFecha;
-	JButton btnAceptar;
-	JButton btnCancelar;
-	VentanaPrincipalMedico principal;
-	JLabel lblMensaje;
-	DateFormat formateador;
-	ComponenteHoras componenteHoras;
-	JLabel lblNewLabelCitaAntigua;
-	JComboBox<String> comboBoxCitasMedico;
+	private JLabel lblFechaSeleccionada;
+	private JRadioButton rdbtnSeleccionarFecha;
+	private JButton btnAceptar;
+	private JButton btnCancelar;
+	private VentanaPrincipalMedico principal;
+	private JLabel lblMensaje;
+	private DateFormat formateador;
+	private ComponenteHoras componenteHoras;
+	private JLabel lblNewLabelCitaAntigua;
+	private JComboBox<String> comboBoxCitasMedico;
 
 
 	/**
@@ -120,7 +120,7 @@ public class ModificarCitaPaciente extends JFrame {
 			comboBoxDniPacientes.setBounds(346, 46, 179, 21);
 			contentPane.add(comboBoxDniPacientes);
 
-			lblTitulo = new JLabel("Asignar cita a los pacientes");
+			lblTitulo = new JLabel("Modificar cita a los pacientes");
 			lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 13));
 			lblTitulo.setBounds(98, 42, 218, 27);
 			contentPane.add(lblTitulo);

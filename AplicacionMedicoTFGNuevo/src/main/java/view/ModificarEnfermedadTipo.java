@@ -28,22 +28,22 @@ public class ModificarEnfermedadTipo extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	static String dni;
-	MedicoController controllerMedico = new MedicoController();
-	String[] dniPaciente;
-	JComboBox<String> comboBoxDniPacientes;
-	String selectedDni, enfermedad, tipo, fecha;
-	JLabel lblTipo, lblEnfermedad, lblIntroduzcaNombre;
-	VentanaPrincipalMedico principal;
-	JButton btnGuardar;
+	private MedicoController controllerMedico = new MedicoController();
+	private String[] dniPaciente;
+	private JComboBox<String> comboBoxDniPacientes;
+	private String selectedDni, enfermedad, tipo, fecha;
+	private JLabel lblTipo, lblEnfermedad, lblIntroduzcaNombre;
+	private VentanaPrincipalMedico principal;
+	private JButton btnGuardar;
 	private JTextField textFieldEnfermedad;
 	private JTextField textFieldTipo;
-	JLabel lblMensaje;
+	private JLabel lblMensaje;
 	private JLabel lblModificarDiagnostico;
 	private JLabel lblFechaIngreso;
 	private JTextField textFieldFechaIngreso;
 	private JButton btnVolver;
 	private JButton btnDarDeAlts;
-	AnadirEnfermedadAHistorial anadirHistorial;
+	private AnadirEnfermedadAHistorial anadirHistorial;
 
 	/**
 	 * Launch the application.

@@ -32,12 +32,12 @@ public class AnadirEnfermedadAHistorial extends JFrame {
 	private JLabel lblEnfermedad, lblFechaBaja, lblDetalles, lblTratamiento, lblMedicamentos, lblInforme;
 	private JTextField textFieldEnfermedad, textFieldTratamiento, textFieldMedicamentos, textFieldinforme;
 	private final MedicoController controllerInterfaz = new MedicoController();
-	VentanaPrincipalMedico medico;
+	private VentanaPrincipalMedico medico;
 	private JLabel lblMensaje;
 	private JLabel lblAadirEnfermedadesAl;
-	JLabel lblFechaAlta;
+	private JLabel lblFechaAlta;
 	static String dni, selectedDni;
-	String enfermedad, fecha_baja, fecha_alta, fechaBajaModificada;
+	private String enfermedad, fecha_baja, fecha_alta, fechaBajaModificada;
 	private JTextField textFieldFecha_Alta;
 	private JTextField textFieldFechaBaja;
 

@@ -33,18 +33,18 @@ public class VerInformes extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	static String dni;
-	String[] dniPaciente;
-	MedicoController controllerMedico = new MedicoController();
-	JLabel lblVerCitasCon;
-	JComboBox<String> comboBoxDniPacientes;
-	JLabel lblNewLabel;
-	JPanel panelInformes;
-	JScrollPane scrollPane;
+	private String[] dniPaciente;
+	private MedicoController controllerMedico = new MedicoController();
+	private JLabel lblVerCitasCon;
+	private JComboBox<String> comboBoxDniPacientes;
+	private JLabel lblNewLabel;
+	private JPanel panelInformes;
+	private JScrollPane scrollPane;
 	private JButton btnCancelar;
-	VentanaPrincipalMedico principal;
-	ArrayList<byte[]> informes;
-	ArrayList<String> horaCreacion, fechaCreacion, dniMedico;
-	String selectedDni, nombrePaciente, apellidosPaciente, especialidad;
+	private VentanaPrincipalMedico principal;
+	private ArrayList<byte[]> informes;
+	private ArrayList<String> horaCreacion, dniMedico;
+	private String selectedDni, nombrePaciente, apellidosPaciente, especialidad;
 
 	/**
 	 * Launch the application.
@@ -171,7 +171,6 @@ public class VerInformes extends JFrame {
 	    nombrePaciente = controllerMedico.findNombrePacientePorDni(selectedDni);
 	    apellidosPaciente = controllerMedico.findApellidosPacientePorDni(selectedDni);
 	    especialidad = controllerMedico.findEspecialidadPorDni(dni);
-	    fechaCreacion = controllerMedico.findHoraCreacion(selectedDni);
 
 	    DateTimeFormatter formatoOriginal = DateTimeFormatter.ofPattern("EEEE, d 'de' MMMM 'de' uuuu HH:mm", new Locale("es", "ES"));
 	    DateTimeFormatter nuevoFormato = DateTimeFormatter.ofPattern("dd-MM-yyyy");
