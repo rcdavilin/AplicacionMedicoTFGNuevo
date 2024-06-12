@@ -26,7 +26,7 @@ public class VerCitasConLosPacientes extends JFrame {
 	private JPanel contentPane;
 	static String dni;
 	private String[] dniPaciente;
-	private ArrayList<String> citas, dniMedico;
+	private ArrayList<String> citas;
 	private String selectedDni;
 	private MedicoController controllerMedico = new MedicoController();
 	private JLabel lblVerCitasCon;
@@ -87,16 +87,15 @@ public class VerCitasConLosPacientes extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					selectedDni = (String) comboBoxDniPacientes.getSelectedItem();
-					citas = controllerMedico.findbyCitasPaciente(selectedDni);
-					dniMedico = controllerMedico.findDniMedicobyCitasPaciente(selectedDni);
+					citas = controllerMedico.findbyCitasPaciente(selectedDni, dni);
 					String nombreMedico = "";
 					String apellidoMedico = "";
 					String especialidad = "";
 					StringBuilder todasLasCitas = new StringBuilder();
 					for (int i = 0; i < citas.size(); i++) {
-						nombreMedico = controllerMedico.findNombreMedicoPorDni(dniMedico.get(i));
-						apellidoMedico = controllerMedico.findApellidosMedicoPorDni(dniMedico.get(i));
-						especialidad = controllerMedico.findEspecialidadPorDni(dniMedico.get(i));
+						nombreMedico = controllerMedico.findNombreMedicoPorDni(dni);
+						apellidoMedico = controllerMedico.findApellidosMedicoPorDni(dni);
+						especialidad = controllerMedico.findEspecialidadPorDni(dni);
 						todasLasCitas.append(citas.get(i)).append(" - ").append(nombreMedico).append(" ").append(apellidoMedico).append(" - ")
 						.append(especialidad).append("\n");
 					}

@@ -260,8 +260,8 @@ public class MedicoController {
 		return paciente;
 	}
 
-	public ArrayList<String> findbyCitasPaciente(String dni) {
-		ArrayList<String> medico = pacienteRepositoryImpl.findCitasPacientes(dni);
+	public ArrayList<String> findbyCitasPaciente(String dni, String dniMedico) {
+		ArrayList<String> medico = pacienteRepositoryImpl.findCitasPacientes(dni, dniMedico);
 		return medico;
 	}
 

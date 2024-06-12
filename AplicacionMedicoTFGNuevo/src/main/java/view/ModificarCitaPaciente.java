@@ -102,7 +102,7 @@ public class ModificarCitaPaciente extends JFrame {
 					if (paciente.isPresent()) {
 						lblNewLabelCitaAntigua.setVisible(true);
 						comboBoxCitasMedico.setVisible(true);
-						citasMedicas = controllerMedico.findbyCitasPaciente(selectedDni);
+						citasMedicas = controllerMedico.findbyCitasPaciente(selectedDni, dni);
 						DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>();
 						model.addElement("");
 						for (int i = 0; i < citasMedicas.size(); i++) {

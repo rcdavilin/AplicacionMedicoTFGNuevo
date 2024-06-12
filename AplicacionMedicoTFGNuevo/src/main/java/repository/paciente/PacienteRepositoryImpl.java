@@ -355,22 +355,24 @@ public class PacienteRepositoryImpl implements PacienteRepository {
 	}
 
 	@SuppressWarnings("unchecked")
-	public ArrayList<String> findCitasPacientes(String medico) {
-		Bson filter = eq(dni, medico);
-		Document document = collection.find(filter).first();
+	public ArrayList<String> findCitasPacientes(String pacienteDni, String medicoDni) {
+	    Bson filter = eq(dni, pacienteDni);
+	    Document document = collection.find(filter).first();
 
-		ArrayList<Document> enfermedades = (ArrayList<Document>) document.get("Citas_Paciente");
-		ArrayList<String> fecha = new ArrayList<>();
+	    ArrayList<Document> citas = (ArrayList<Document>) document.get("Citas_Paciente");
+	    ArrayList<String> fechas = new ArrayList<>();
 
-		for (Document obj : enfermedades) {
-			if (obj.containsKey("Fecha")) {
-				fecha.add(obj.getString("Fecha"));
-			}
-		}
+	    for (Document cita : citas) {
+	        if (cita.containsKey("DniMedico") && cita.getString("DniMedico").equals(medicoDni)) {
+	            if (cita.containsKey("Fecha")) {
+	                fechas.add(cita.getString("Fecha"));
+	            }
+	        }
+	    }
 
-		return fecha;
-
+	    return fechas;
 	}
+
 
 	@SuppressWarnings("unchecked")
 	public ArrayList<String> findDniMedicoDeCitasPacientes(String medico) {
