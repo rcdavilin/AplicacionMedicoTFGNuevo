@@ -204,11 +204,6 @@ public class MedicoController {
 		return medico;
 	}
 
-	public String findTelefono(String nombre) {
-		String medico = pacienteRepositoryImpl.findTelefono(nombre);
-		return medico;
-	}
-
 	public ArrayList<String> findHoraCreacion(String nombre) {
 		ArrayList<String> medico = informeRespositoryImpl.findFechaCreacion(nombre);
 		return medico;
@@ -248,7 +243,7 @@ public class MedicoController {
 		return pacienteRepositoryImpl.updateEnfermedadYTipo(paciente, enfermedad, tipo, fecha);
 	}
 
-	public Boolean abrirCitasPaciente(Optional<Document> dni, List<String> citas) {
+	public Boolean abrirCitasMedicas(Optional<Document> dni, List<String> citas) {
 		Boolean actualizado = medicoRepositoryImpl.abrirCitasMedicas(dni, "Citas_Abiertas", citas);
 
 		return actualizado;
@@ -285,10 +280,6 @@ public class MedicoController {
 		return dniPacientes;
 	}
 
-	public String medicamentosString(String dni) {
-		String dniPacientes = pacienteRepositoryImpl.guardarMedicamentosString(dni);
-		return dniPacientes;
-	}
 
 	public Optional<Document> comprobarDni(String dni) {
 		Optional<Document> medicos = medicoRepositoryImpl.findById(dni);
@@ -326,10 +317,6 @@ public class MedicoController {
 
 	public Boolean actualizarContraseña(Optional<Document> medicos, String atributo, String contraseña) {
 		return medicoRepositoryImpl.update(medicos, atributo, contraseña);
-	}
-
-	public String mostrar(String mensaje) {
-		return mensaje;
 	}
 
 }

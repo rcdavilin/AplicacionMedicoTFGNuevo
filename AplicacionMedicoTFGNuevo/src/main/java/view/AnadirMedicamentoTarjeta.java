@@ -64,6 +64,7 @@ public class AnadirMedicamentoTarjeta extends JFrame {
 	 * Create the frame.
 	 */
 	public AnadirMedicamentoTarjeta(String dni) {
+		setResizable(false);
 		try {
 			AnadirMedicamentoTarjeta.dni = dni;
 			dniPaciente = controllerMedico.dniPacientes(dni);

@@ -67,6 +67,7 @@ public class AsignarEnfemerdadYTipo extends JFrame {
         AsignarCitaPaciente.dni = dni;
         dniPaciente = controllerMedico.dniPacientes(dni);
 
+		setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 522, 427);
         contentPane = new JPanel();

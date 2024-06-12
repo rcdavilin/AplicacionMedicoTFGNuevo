@@ -56,6 +56,8 @@ public class EliminarMedicamentoTarjeta extends JFrame {
 	 * Create the frame.
 	 */
 	public EliminarMedicamentoTarjeta(String dni) {
+		setResizable(false);
+
 		try {
 			AnadirMedicamentoTarjeta.dni = dni;
 			dniPaciente = controllerMedico.dniPacientes(dni);

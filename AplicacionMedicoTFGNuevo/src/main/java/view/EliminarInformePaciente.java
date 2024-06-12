@@ -58,6 +58,8 @@ public class EliminarInformePaciente extends JFrame {
 	 * Create the frame.
 	 */
 	public EliminarInformePaciente(String dni) {
+		setResizable(false);
+
 		try {
 			AnadirMedicamentoTarjeta.dni = dni;
 			dniPaciente = controllerMedico.dniPacientes(dni);

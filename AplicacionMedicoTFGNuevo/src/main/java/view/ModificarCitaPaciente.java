@@ -74,6 +74,8 @@ public class ModificarCitaPaciente extends JFrame {
 	 * Create the frame.
 	 */
 	public ModificarCitaPaciente(String dni) {
+		setResizable(false);
+
 		try {
 			ModificarCitaPaciente.dni = dni;
 			dniPaciente = controllerMedico.dniPacientes(dni);

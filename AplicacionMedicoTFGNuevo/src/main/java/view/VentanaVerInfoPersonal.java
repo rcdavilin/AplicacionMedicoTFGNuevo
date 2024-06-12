@@ -51,6 +51,8 @@ public class VentanaVerInfoPersonal extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaVerInfoPersonal(String dni) {
+		setResizable(false);
+
 		VentanaVerInfoPersonal.dni = dni;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 530, 468);

@@ -56,6 +56,7 @@ public class VerMedicamentosPaciente extends JFrame {
 	 * Create the frame.
 	 */
 	public VerMedicamentosPaciente(String dni) {
+		setResizable(false);
 
 		AsignarCitaPaciente.dni = dni;
 		dniPaciente = controllerMedico.dniPacientes(dni);

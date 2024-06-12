@@ -136,16 +136,6 @@ public class MedicoRepositoryImpl implements MedicoRepository {
 		return Optional.ofNullable(result);
 	}
 
-
-	public List<Document> findByNombre(String nombre) {
-
-		Bson filter = eq("Nombre", nombre);
-		Bson projectionFields = Projections.excludeId();
-
-		List<Document> results = collection.find(filter).projection(projectionFields).into(new ArrayList<>());
-		return results;
-	}
-
 	@Override
 	public DeleteResult delete(String dni) {
 		DeleteResult resultado = null;
@@ -156,22 +146,6 @@ public class MedicoRepositoryImpl implements MedicoRepository {
 			e.printStackTrace();
 		}
 		return resultado;
-	}
-
-	public Boolean update(Optional<Document> medico, String atributo, List<String> valores) {
-		try {
-			if (medico.isPresent()) {
-				Document filter = medico.get();
-				Document update = new Document("$set", new Document(atributo, valores));
-				collection.updateOne(filter, update);
-				return true;
-			} else {
-				return false;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
 	}
 
 	public Boolean update(Optional<Document> medico, String atributo, String valor) {
@@ -189,31 +163,6 @@ public class MedicoRepositoryImpl implements MedicoRepository {
 			e.printStackTrace();
 			return false;
 		}
-	}
-
-	public Boolean update(Optional<Document> medico, String atributo, Document valores) {
-		try {
-			if (medico.isPresent()) {
-				Document filter = medico.get();
-				Document update = new Document("$set", new Document(atributo, valores));
-				collection.updateOne(filter, update);
-				return true;
-			} else {
-				return false;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
-
-
-
-	public List<Document> findByAttribute(String atributo, String valor) {
-		Bson filter = eq(atributo, valor);
-		Bson projectionFields = Projections.excludeId();
-		List<Document> results = collection.find(filter).projection(projectionFields).into(new ArrayList<>());
-		return results;
 	}
 
 }

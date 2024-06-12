@@ -63,6 +63,8 @@ public class VerPacientesCargo extends JFrame {
 	 * Create the frame.
 	 */
 	public VerPacientesCargo(String dni) {
+		setResizable(false);
+
 		try {
 			VerPacientesCargo.dni = dni;
 			dniPaciente = controllerMedico.dniPacientes(dni);

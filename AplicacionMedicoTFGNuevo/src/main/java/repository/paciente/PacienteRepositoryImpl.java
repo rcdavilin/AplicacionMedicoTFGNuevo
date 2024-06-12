@@ -66,7 +66,7 @@ public class PacienteRepositoryImpl implements PacienteRepository {
 			return false;
 		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public String[] findAlergenos(String paciente) {
 		Bson filter = eq(dni, paciente);
@@ -126,6 +126,7 @@ public class PacienteRepositoryImpl implements PacienteRepository {
 
 		return fecha;
 	}
+
 	@SuppressWarnings("unchecked")
 	public ArrayList<String> findTratamiento(String paciente) {
 		Bson filter = eq(dni, paciente);
@@ -306,13 +307,6 @@ public class PacienteRepositoryImpl implements PacienteRepository {
 		return (String) grupoSanguineoDni;
 
 	}
-	public String findTelefono(String paciente) {
-		Bson filter = eq(dni, paciente);
-		Document result = collection.find(filter).first();
-		Object grupoSanguineoDni = result.get("Telefono");
-		return (String) grupoSanguineoDni;
-
-	}
 
 	@Override
 	public Boolean save(Document entity) {
@@ -333,15 +327,6 @@ public class PacienteRepositoryImpl implements PacienteRepository {
 		return Optional.ofNullable(result);
 	}
 
-	public List<Document> findByNombre(String nombre) {
-
-		Bson filter = eq("Nombre", nombre);
-		Bson projectionFields = Projections.excludeId();
-
-		List<Document> results = collection.find(filter).projection(projectionFields).into(new ArrayList<>());
-		return results;
-	}
-
 	@Override
 	public DeleteResult delete(String dni) {
 		DeleteResult resultado = null;
@@ -356,23 +341,22 @@ public class PacienteRepositoryImpl implements PacienteRepository {
 
 	@SuppressWarnings("unchecked")
 	public ArrayList<String> findCitasPacientes(String pacienteDni, String medicoDni) {
-	    Bson filter = eq(dni, pacienteDni);
-	    Document document = collection.find(filter).first();
+		Bson filter = eq(dni, pacienteDni);
+		Document document = collection.find(filter).first();
 
-	    ArrayList<Document> citas = (ArrayList<Document>) document.get("Citas_Paciente");
-	    ArrayList<String> fechas = new ArrayList<>();
+		ArrayList<Document> citas = (ArrayList<Document>) document.get("Citas_Paciente");
+		ArrayList<String> fechas = new ArrayList<>();
 
-	    for (Document cita : citas) {
-	        if (cita.containsKey("DniMedico") && cita.getString("DniMedico").equals(medicoDni)) {
-	            if (cita.containsKey("Fecha")) {
-	                fechas.add(cita.getString("Fecha"));
-	            }
-	        }
-	    }
+		for (Document cita : citas) {
+			if (cita.containsKey("DniMedico") && cita.getString("DniMedico").equals(medicoDni)) {
+				if (cita.containsKey("Fecha")) {
+					fechas.add(cita.getString("Fecha"));
+				}
+			}
+		}
 
-	    return fechas;
+		return fechas;
 	}
-
 
 	@SuppressWarnings("unchecked")
 	public ArrayList<String> findDniMedicoDeCitasPacientes(String medico) {
@@ -398,13 +382,6 @@ public class PacienteRepositoryImpl implements PacienteRepository {
 		Document document = collection.find(filter).first();
 		List<String> medicamentos = (List<String>) document.get("Tarjeta_Medica");
 		return medicamentos.toArray(new String[0]);
-	}
-
-	public String guardarMedicamentosString(String paciente) {
-		Bson filter = eq(dni, paciente);
-		Document document = collection.find(filter).first();
-		Object medicamentosTarjeta = document.get("Tarjeta_Medica");
-		return (String) medicamentosTarjeta;
 	}
 
 	public Boolean eliminarEnfermedadIngreso(Optional<Document> paciente, String enfermedad, String tipo,
@@ -469,22 +446,6 @@ public class PacienteRepositoryImpl implements PacienteRepository {
 		}
 	}
 
-	public Boolean update(Optional<Document> paciente, String atributo, List<String> valores) {
-		try {
-			if (paciente.isPresent()) {
-				Document filter = paciente.get();
-				Document update = new Document("$set", new Document(atributo, valores));
-				collection.updateOne(filter, update);
-				return true;
-			} else {
-				return false;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
-
 	public Boolean updateEnfermedadYTipo(Optional<Document> paciente, String enfermedad, String tipo,
 			String fechaIngreso) {
 		try {
@@ -504,34 +465,18 @@ public class PacienteRepositoryImpl implements PacienteRepository {
 	}
 
 	public Boolean modificarCita(String dni, String dniMedico, String fechaOriginal, String nuevaFecha) {
-	    try {
-	        Document filter = new Document("Dni", dni).append("Citas_Paciente", new Document("$elemMatch",
-	                new Document("DniMedico", dniMedico).append("Fecha", fechaOriginal)));
-
-	        Document update = new Document("$set", new Document("Citas_Paciente.$[e].Fecha", nuevaFecha));
-
-	        Document arrayFilter = new Document("e.DniMedico", dniMedico).append("e.Fecha", fechaOriginal);
-
-	        UpdateOptions options = new UpdateOptions().arrayFilters(Arrays.asList(arrayFilter));
-
-	        UpdateResult result = collection.updateOne(filter, update, options);
-	        return result.getModifiedCount() > 0;
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	        return false;
-	    }
-	}
-
-	public Boolean update(Optional<Document> paciente, String atributo, Document valores) {
 		try {
-			if (paciente.isPresent()) {
-				Document filter = paciente.get();
-				Document update = new Document("$set", new Document(atributo, valores));
-				collection.updateOne(filter, update);
-				return true;
-			} else {
-				return false;
-			}
+			Document filter = new Document("Dni", dni).append("Citas_Paciente",
+					new Document("$elemMatch", new Document("DniMedico", dniMedico).append("Fecha", fechaOriginal)));
+
+			Document update = new Document("$set", new Document("Citas_Paciente.$[e].Fecha", nuevaFecha));
+
+			Document arrayFilter = new Document("e.DniMedico", dniMedico).append("e.Fecha", fechaOriginal);
+
+			UpdateOptions options = new UpdateOptions().arrayFilters(Arrays.asList(arrayFilter));
+
+			UpdateResult result = collection.updateOne(filter, update, options);
+			return result.getModifiedCount() > 0;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;

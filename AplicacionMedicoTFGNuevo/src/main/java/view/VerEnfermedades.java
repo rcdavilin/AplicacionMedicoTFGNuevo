@@ -68,6 +68,8 @@ public class VerEnfermedades extends JFrame {
      * Create the frame.
      */
     public VerEnfermedades(String dni, String selectedDni) {
+		setResizable(false);
+
         VerEnfermedades.dni = dni;
         VerEnfermedades.selectedDni = selectedDni;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

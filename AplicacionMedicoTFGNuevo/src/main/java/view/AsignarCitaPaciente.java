@@ -69,6 +69,7 @@ public class AsignarCitaPaciente extends JFrame {
 	 * Create the frame.
 	 */
 	public AsignarCitaPaciente(String dni) {
+		setResizable(false);
 		try {
 			AsignarCitaPaciente.dni = dni;
 			dniPaciente = controllerMedico.dniPacientes(dni);

@@ -5,6 +5,16 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.Optional;
 
@@ -21,14 +31,9 @@ import javax.swing.text.MaskFormatter;
 import org.bson.Document;
 
 import controller.MedicoController;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class InicioSesion extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPasswordField passwordField;
 	private Registro registro;
@@ -43,6 +48,7 @@ public class InicioSesion extends JFrame {
 	private CambioContraseña cambio;
 	private String username;
 	private JLabel cambiarContrasenaLabel;
+	private JRadioButton rdGuardarUsuario;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -61,7 +67,7 @@ public class InicioSesion extends JFrame {
 
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 600, 456);
+		setBounds(100, 100, 586, 446);
 
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(230, 230, 250));
@@ -98,12 +104,12 @@ public class InicioSesion extends JFrame {
 		});
 
 		loginButton = new JButton("Iniciar Sesión");
-		loginButton.setBounds(292, 234, 150, 40);
+		loginButton.setBounds(292, 258, 150, 40);
 		loginButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		contentPane.add(loginButton);
 
 		registerButton = new JButton("Registrarse");
-		registerButton.setBounds(133, 234, 121, 40);
+		registerButton.setBounds(133, 258, 121, 40);
 		registerButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		contentPane.add(registerButton);
 		registerButton.addActionListener(new ActionListener() {
@@ -120,12 +126,10 @@ public class InicioSesion extends JFrame {
 			formattedDni = new JFormattedTextField(mascara);
 			formattedDni.setBounds(164, 100, 200, 27);
 			contentPane.add(formattedDni);
-			
-			
-
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+
 		cambiarContrasenaLabel = new JLabel("Cambiar Contraseña");
 		cambiarContrasenaLabel.addMouseListener(new MouseAdapter() {
 			@Override
@@ -140,27 +144,87 @@ public class InicioSesion extends JFrame {
 		cambiarContrasenaLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		cambiarContrasenaLabel.setBounds(164, 187, 200, 21);
 		contentPane.add(cambiarContrasenaLabel);
+		
+		rdGuardarUsuario = new JRadioButton("Guardar usuario");
+		rdGuardarUsuario.setBackground(new Color(230, 230, 250));
+		rdGuardarUsuario.setBounds(164, 214, 200, 21);
+		contentPane.add(rdGuardarUsuario);
 
-		loginButton.addActionListener(new ActionListener() {
+		ActionListener loginAction = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				username = formattedDni.getText();
-				String password = new String(passwordField.getPassword());
+				performLogin();
+			}
+		};
 
-				Optional<Document> dni = medicoController.comprobarDni(username);
-				if (dni.isPresent() && medicoController.authenticateUser(username, password)) {
-					vpm = new VentanaPrincipalMedico(username);
-					vpm.setVisible(true);
-					dispose();
-				} else if (dni.isPresent()) {
-					JOptionPane.showMessageDialog(InicioSesion.this,
-							"El usuario " + username + " existe pero la contraseña es incorrecta");
-				} else {
-					JOptionPane.showMessageDialog(InicioSesion.this, "El usuario " + username + " no existe");
+		loginButton.addActionListener(loginAction);
+
+		passwordField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					performLogin();
 				}
 			}
 		});
 
+		formattedDni.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					performLogin();
+				}
+			}
+		});
+		loadUserAndPassword();
 	}
+
+	private void performLogin() {
+		username = formattedDni.getText();
+		String password = new String(passwordField.getPassword());
+
+		Optional<Document> dni = medicoController.comprobarDni(username);
+		if (dni.isPresent() && medicoController.authenticateUser(username, password)) {
+			if(rdGuardarUsuario.isSelected()) {
+				saveUserAndPassword(username, password);
+			}
+			vpm = new VentanaPrincipalMedico(username);
+			vpm.setVisible(true);
+			dispose();
+		} else if (dni.isPresent()) {
+			JOptionPane.showMessageDialog(InicioSesion.this,
+					"El usuario " + username + " existe pero la contraseña es incorrecta");
+		} else {
+			JOptionPane.showMessageDialog(InicioSesion.this, "El usuario " + username + " no existe");
+		}
+	}
+	private void saveUserAndPassword(String username, String password) {
+        try (BufferedWriter writer = new BufferedWriter(
+                new FileWriter("src/main/resources/user_credentials.txt", false))) {
+            writer.write("Usuario: " + username + ", Contraseña: " + password);
+            writer.newLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadUserAndPassword() {
+        File file = new File("src/main/resources/user_credentials.txt");
+        if (file.exists()) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                String line = reader.readLine();
+                if (line != null && !line.trim().isEmpty()) {
+                    String[] parts = line.split(", ");
+                    if (parts.length == 2) {
+                        String username = parts[0].split(": ")[1];
+                        String password = parts[1].split(": ")[1];
+                        formattedDni.setText(username);
+                        passwordField.setText(password);
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

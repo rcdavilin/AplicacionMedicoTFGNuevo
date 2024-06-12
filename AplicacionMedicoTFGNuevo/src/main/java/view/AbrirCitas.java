@@ -66,6 +66,7 @@ public class AbrirCitas extends JFrame {
 	 * Create the frame.
 	 */
 	public AbrirCitas(String dni) {
+		setResizable(false);
 		try {
 			AbrirCitas.dni = dni;
 
@@ -125,7 +126,7 @@ public class AbrirCitas extends JFrame {
 						ArrayList<String> listaCitas = new ArrayList<String>();
 						listaCitas.add(citas);
 
-						Boolean anadido = controllerMedico.abrirCitasPaciente(medico, listaCitas);
+						Boolean anadido = controllerMedico.abrirCitasMedicas(medico, listaCitas);
 						if (anadido == true) {
 							lblMensaje.setText("Se han abierto las citas correctamente");
 							lblMensaje.setForeground(Color.GREEN);

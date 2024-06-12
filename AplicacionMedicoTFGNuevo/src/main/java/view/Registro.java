@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.text.ParseException;
 import java.util.Optional;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
@@ -22,12 +23,13 @@ import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import javax.swing.JComboBox;
 
 public class Registro extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textFieldApellidos, textFieldNombre, textFieldSexo;
+	private JTextField textFieldApellidos, textFieldNombre;
 	private JLabel labelPaswd, Title, name, surname, dob, gender, dni, lblMensaje;
 	private MaskFormatter mask;
 	private JPasswordField passwordField;
@@ -35,7 +37,7 @@ public class Registro extends JFrame {
 	private JFormattedTextField formattedDni, formattedFecha_Nacimiento;
 	private MedicoController medicoController = new MedicoController();
 	private InicioSesion inicio;
-
+	private JComboBox<String> GendercomboBox;
 	/**
 	 * Launch the application.
 	 */
@@ -106,11 +108,6 @@ public class Registro extends JFrame {
 		textFieldNombre.setBounds(139, 134, 135, 19);
 		contentPane.add(textFieldNombre);
 		textFieldNombre.setColumns(10);
-
-		textFieldSexo = new JTextField();
-		textFieldSexo.setColumns(10);
-		textFieldSexo.setBounds(376, 182, 135, 19);
-		contentPane.add(textFieldSexo);
 
 		labelPaswd = new JLabel("Contraseña:");
 		labelPaswd.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -185,5 +182,10 @@ public class Registro extends JFrame {
 		btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnCancelar.setBounds(126, 262, 120, 44);
 		contentPane.add(btnCancelar);
+		
+		GendercomboBox = new JComboBox<String>();
+		GendercomboBox.setModel(new DefaultComboBoxModel<>(new String[] { "", "Masculino", "Femenino" }));
+		GendercomboBox.setBounds(376, 181, 135, 21);
+		contentPane.add(GendercomboBox);
 	}
 }

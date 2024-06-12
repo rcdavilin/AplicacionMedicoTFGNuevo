@@ -66,6 +66,8 @@ public class VerHistorialMedico extends JFrame {
 	 * Create the frame.
 	 */
 	public VerHistorialMedico(String dni) {
+		setResizable(false);
+
 		try {
 			VerHistorialMedico.dni = dni;
 			dniPaciente = controllerMedico.dniPacientes(dni);

@@ -89,6 +89,8 @@ public class GenerarInforme extends JFrame {
 	 * Create the frame.
 	 */
 	public GenerarInforme(String dni) {
+		setResizable(false);
+
 		GenerarInforme.dni = dni;
 		dniPaciente = controllerMedico.dniPacientes(dni);
 		setBackground(new Color(230, 230, 250));

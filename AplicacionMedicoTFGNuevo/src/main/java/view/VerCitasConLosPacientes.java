@@ -57,6 +57,7 @@ public class VerCitasConLosPacientes extends JFrame {
 	 * Create the frame.
 	 */
 	public VerCitasConLosPacientes(String dni) {
+		setResizable(false);
 
 		AsignarCitaPaciente.dni = dni;
 		dniPaciente = controllerMedico.dniPacientes(dni);
