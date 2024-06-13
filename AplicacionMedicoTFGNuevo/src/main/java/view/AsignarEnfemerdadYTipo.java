@@ -185,10 +185,10 @@ public class AsignarEnfemerdadYTipo extends JFrame {
                     fecha = textFieldFechaDiagnostico.getText();
                     Boolean actualizado = controllerMedico.actualizarEnfermedadYTipo(paciente, enfermedad, tipo, fecha);
                     if (actualizado) {
-                        lblMensaje.setText("Enfermedad y tipo asignada al paceinte con exito");
+                        lblMensaje.setText("Enfermedad y tipo asignada al paciente con exito");
                         lblMensaje.setForeground(Color.GREEN);
                     } else {
-                        lblMensaje.setText("Enfermedad y tipo no ha sido asignada al paceinte con exito");
+                        lblMensaje.setText("Enfermedad y tipo no ha sido asignada al paciente con exito");
                         lblMensaje.setForeground(Color.RED);
                     }
                     
