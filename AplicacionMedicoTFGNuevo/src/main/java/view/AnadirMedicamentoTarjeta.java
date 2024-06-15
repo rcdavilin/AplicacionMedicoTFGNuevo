@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 
 import org.bson.Document;
@@ -130,6 +131,15 @@ public class AnadirMedicamentoTarjeta extends JFrame {
 						if (anadido == true) {
 							lblMensaje.setText("Medicamentos añadidos a la tarjeta medica del paciente con éxito");
 							lblMensaje.setForeground(Color.GREEN);
+							Timer timer = new Timer(1500, new ActionListener() {
+								public void actionPerformed(ActionEvent e) {
+									principal = new VentanaPrincipalMedico(dni);
+									principal.setVisible(true);
+									dispose();
+								}
+							});
+							timer.setRepeats(false);
+							timer.start();
 						} else {
 							lblMensaje.setText(
 									"Medicamentos no han sido añadidos a la tarjeta medica del paciente con éxito");

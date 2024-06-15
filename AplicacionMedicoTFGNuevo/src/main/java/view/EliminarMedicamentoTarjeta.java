@@ -20,6 +20,7 @@ import org.bson.Document;
 import controller.MedicoController;
 
 import javax.swing.JTextField;
+import javax.swing.Timer;
 import javax.swing.JButton;
 
 public class EliminarMedicamentoTarjeta extends JFrame {
@@ -167,6 +168,15 @@ public class EliminarMedicamentoTarjeta extends JFrame {
 						if (actualizado == true) {
 							lblMensaje.setText("Medicamentos eliminado de la tarjeta con exito");
 							lblMensaje.setForeground(Color.GREEN);
+							Timer timer = new Timer(1500, new ActionListener() {
+								public void actionPerformed(ActionEvent e) {
+									principal = new VentanaPrincipalMedico(dni);
+									principal.setVisible(true);
+									dispose();
+								}
+							});
+							timer.setRepeats(false);
+							timer.start();
 						} else {
 							lblMensaje.setText("Medicamentos no eliminado de la tarjeta");
 							lblMensaje.setForeground(Color.RED);

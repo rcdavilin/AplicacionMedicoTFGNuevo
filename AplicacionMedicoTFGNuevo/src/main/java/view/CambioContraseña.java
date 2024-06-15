@@ -23,6 +23,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
+import javax.swing.Timer;
 
 public class CambioContraseña extends JFrame {
 
@@ -127,6 +128,15 @@ public class CambioContraseña extends JFrame {
 						if (anadido == true) {
 							lblMensaje.setText("El cambio de contraseña ha sido realizado con exito");
 							lblMensaje.setForeground(Color.GREEN);
+							Timer timer = new Timer(1500, new ActionListener() {
+								public void actionPerformed(ActionEvent e) {
+									inicio = new InicioSesion();
+									inicio.setVisible(true);
+									dispose();
+								}
+							});
+							timer.setRepeats(false);
+							timer.start();
 						} else {
 							lblMensaje.setText("El cambio de contraseña no ha sido realizado con exito");
 							lblMensaje.setForeground(Color.RED);

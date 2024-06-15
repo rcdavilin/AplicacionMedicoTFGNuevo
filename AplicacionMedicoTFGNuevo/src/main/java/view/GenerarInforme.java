@@ -236,6 +236,15 @@ public class GenerarInforme extends JFrame {
 						Boolean guardado = controllerMedico.anadirInforme(pacienteDni,dni, pdfData, fechaFormateada);
 						if (guardado) {
 							JOptionPane.showMessageDialog(GenerarInforme.this, "Informe guardado correctamente");
+							Timer timer1 = new Timer(1500, new ActionListener() {
+								public void actionPerformed(ActionEvent e) {
+									principal = new VentanaPrincipalMedico(dni);
+									principal.setVisible(true);
+									dispose();
+								}
+							});
+							timer1.setRepeats(false);
+							timer1.start();
 
 						} else {
 							JOptionPane.showMessageDialog(GenerarInforme.this, "Informe no guardado correctamente");

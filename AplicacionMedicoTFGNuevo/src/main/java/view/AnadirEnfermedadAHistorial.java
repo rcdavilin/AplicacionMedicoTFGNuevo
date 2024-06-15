@@ -17,6 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 
 import org.bson.Document;
@@ -32,7 +33,7 @@ public class AnadirEnfermedadAHistorial extends JFrame {
 	private JLabel lblEnfermedad, lblFechaBaja, lblDetalles, lblTratamiento, lblMedicamentos, lblInforme;
 	private JTextField textFieldEnfermedad, textFieldTratamiento, textFieldMedicamentos, textFieldinforme;
 	private final MedicoController controllerInterfaz = new MedicoController();
-	private VentanaPrincipalMedico medico;
+	private VentanaPrincipalMedico principal;
 	private JLabel lblMensaje;
 	private JLabel lblAadirEnfermedadesAl;
 	private JLabel lblFechaAlta;
@@ -133,8 +134,8 @@ public class AnadirEnfermedadAHistorial extends JFrame {
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				medico = new VentanaPrincipalMedico(dni);
-				medico.setVisible(true);
+				principal = new VentanaPrincipalMedico(dni);
+				principal.setVisible(true);
 				dispose();
 			}
 		});
@@ -151,6 +152,15 @@ public class AnadirEnfermedadAHistorial extends JFrame {
 					if (anadido == true) {
 						lblMensaje.setText("Enfermedades añadidas con exito");
 						lblMensaje.setForeground(Color.GREEN);
+						Timer timer = new Timer(1500, new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+								principal = new VentanaPrincipalMedico(dni);
+								principal.setVisible(true);
+								dispose();
+							}
+						});
+						timer.setRepeats(false);
+						timer.start();
 					} else {
 						lblMensaje.setText("Enfermedades no añadidas con exito");
 						lblMensaje.setForeground(Color.RED);

@@ -149,6 +149,11 @@ public class InicioSesion extends JFrame {
 		rdGuardarUsuario.setBackground(new Color(230, 230, 250));
 		rdGuardarUsuario.setBounds(164, 214, 200, 21);
 		contentPane.add(rdGuardarUsuario);
+		
+		JLabel lblTitulo = new JLabel("Aplicacion medicos");
+		lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblTitulo.setBounds(194, 39, 183, 21);
+		contentPane.add(lblTitulo);
 
 		ActionListener loginAction = new ActionListener() {
 			@Override
