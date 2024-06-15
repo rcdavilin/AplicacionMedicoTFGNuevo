@@ -150,9 +150,9 @@ public class InicioSesion extends JFrame {
 		rdGuardarUsuario.setBounds(164, 214, 200, 21);
 		contentPane.add(rdGuardarUsuario);
 		
-		JLabel lblTitulo = new JLabel("Aplicacion medicos");
+		JLabel lblTitulo = new JLabel("Medicos Hospital la Paloma\r\n");
 		lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblTitulo.setBounds(194, 39, 183, 21);
+		lblTitulo.setBounds(172, 39, 248, 21);
 		contentPane.add(lblTitulo);
 
 		ActionListener loginAction = new ActionListener() {
